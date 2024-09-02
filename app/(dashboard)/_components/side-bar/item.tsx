@@ -1,6 +1,7 @@
 import { useOrganization, useOrganizationList } from '@clerk/nextjs'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import Hint from '@/app/(dashboard)/_components/side-bar/hint'
 
 interface ItemsProps {
   id: string
@@ -20,13 +21,15 @@ const Item = ({ id, name, imageUrl }: ItemsProps) => {
 
   return (
     <div className="aspect-square relative">
-      <Image
-        onClick={onClick}
-        fill
-        src={imageUrl}
-        alt={name}
-        className={cn('rounded-md cursor-pointer opacity-75 hover:opacity-100 transition', isActive && 'opacity-100')}
-      />
+      <Hint label={name} side="right" sideOffset={54}>
+        <Image
+          onClick={onClick}
+          fill
+          src={imageUrl}
+          alt={name}
+          className={cn('rounded-md cursor-pointer opacity-75 hover:opacity-100 transition', isActive && 'opacity-100')}
+        />
+      </Hint>
     </div>
   )
 }

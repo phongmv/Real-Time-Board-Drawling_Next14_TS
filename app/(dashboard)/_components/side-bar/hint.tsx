@@ -14,7 +14,13 @@ const Hint = ({ children, label, sideOffset, side, align, alignOffset }: HintPro
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger>{children}</TooltipTrigger>
-        <TooltipContent side={side} sideOffset={sideOffset} align={align} alignOffset={alignOffset}>
+        <TooltipContent
+          className="bg-black text-white"
+          side={side}
+          sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
+        >
           <p className="font-semibold capitalize">{label}</p>
         </TooltipContent>
       </Tooltip>
