@@ -1,7 +1,7 @@
 export default {
     providers: [
         {
-            domain: "https://safe-horse-92.clerk.accounts.dev",
+            domain: "https://current-gator-36.clerk.accounts.dev",
             applicationID: "convex",
         },
     ]

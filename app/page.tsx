@@ -1,6 +1,13 @@
+import {SignedIn, UserButton} from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <div>Hello Jin!</div>
+      <div>
+          <SignedIn>
+              <UserButton/>
+          </SignedIn>
+          This is home page!
+      </div>
+
   );
 }

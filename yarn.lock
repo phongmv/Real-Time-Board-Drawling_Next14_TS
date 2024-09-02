@@ -18,7 +18,7 @@
     snakecase-keys "5.4.4"
     tslib "2.4.1"
 
-"@clerk/clerk-react@5.5.0":
+"@clerk/clerk-react@5.5.0", "@clerk/clerk-react@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-5.5.0.tgz#fbb45367b083b293b2554c5f79e28bd9a983f13f"
   integrity sha512-0M/YJTXYJFbkNns8f5HbcZ6C+KEyPATjeTSy6rFVzYus8YYPGYj1CsjYRfEZLjuwzVObDv2SRadVXQJJWnbvRg==
