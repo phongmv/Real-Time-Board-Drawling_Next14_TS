@@ -21,7 +21,7 @@ const Item = ({ id, name, imageUrl }: ItemsProps) => {
 
   return (
     <div className="aspect-square relative">
-      <Hint label={name} side="right" sideOffset={54}>
+      <Hint label={name} side="right" sideOffset={18}>
         <Image
           onClick={onClick}
           src={imageUrl}

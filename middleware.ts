@@ -2,7 +2,7 @@ import { clerkMiddleware } from '@clerk/nextjs/server'
 
 export default clerkMiddleware((auth) => {
   const { userId, redirectToSignIn } = auth()
-  // Add your middleware checks
+  //middleware checks
   if (!userId) return redirectToSignIn()
 })
 
