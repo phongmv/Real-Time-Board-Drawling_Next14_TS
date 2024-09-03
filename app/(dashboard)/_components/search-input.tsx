@@ -30,7 +30,12 @@ const SearchInput = () => {
   return (
     <div className="relative w-full">
       <Search className="absolute top-1/2 -translate-y-1/2 left-3 w-4 h-4 text-muted-foreground" />
-      <Input onChange={handleChange} value={value} className="pl-9 max-w-[500px]" placeholder="Search boards" />
+      <Input
+        onChange={handleChange}
+        value={value}
+        className="pl-9 h-[36px] max-w-[500px]"
+        placeholder="Search boards"
+      />
     </div>
   )
 }

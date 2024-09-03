@@ -31,6 +31,7 @@ const Navbar = () => {
                 border: '1px solid #E3E5EB',
                 justifyContent: 'space-between',
                 backgroundColor: 'white',
+                height: '36px',
               },
             },
           }}
