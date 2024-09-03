@@ -24,8 +24,9 @@ const Item = ({ id, name, imageUrl }: ItemsProps) => {
       <Hint label={name} side="right" sideOffset={54}>
         <Image
           onClick={onClick}
-          fill
           src={imageUrl}
+          width={40}
+          height={40}
           alt={name}
           className={cn('rounded-md cursor-pointer opacity-75 hover:opacity-100 transition', isActive && 'opacity-100')}
         />
