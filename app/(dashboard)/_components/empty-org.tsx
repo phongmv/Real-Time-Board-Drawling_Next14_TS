@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogDescription, DialogTitle } 
 const EmptyOrg = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
-      <Image width={250} height={200} src="/empty.svg" alt="empty" />
+      <Image width={250} height={200} src="/empty-org.svg" alt="empty" />
       <span className="text-2xl font-semibold mt-6">Welcome to board</span>
       <p className="text-muted-foreground text-sm mt-2 mb-3">Create an organization to get started</p>
       <Dialog>
