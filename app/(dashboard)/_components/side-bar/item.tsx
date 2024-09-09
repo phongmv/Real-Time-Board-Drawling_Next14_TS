@@ -25,10 +25,13 @@ const Item = ({ id, name, imageUrl }: ItemsProps) => {
         <Image
           onClick={onClick}
           src={imageUrl}
-          width={40}
-          height={40}
+          width={36}
+          height={36}
           alt={name}
-          className={cn('rounded-md cursor-pointer opacity-75 hover:opacity-100 transition', isActive && 'opacity-100')}
+          className={cn(
+            'h-full w-full object-fit rounded-md cursor-pointer opacity-75 hover:opacity-100 transition',
+            isActive && 'opacity-100'
+          )}
         />
       </Hint>
     </div>

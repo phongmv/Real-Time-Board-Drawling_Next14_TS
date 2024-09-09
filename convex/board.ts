@@ -22,6 +22,7 @@ export const create = mutation({
   handler: async (ctx, arg) => {
     const identity = await ctx.auth.getUserIdentity()
     if (!identity) throw new Error('Unauthorized !')
+
     const randomImage = images[Math.floor(Math.random() * images.length)]
 
     return ctx.db.insert('boards', {

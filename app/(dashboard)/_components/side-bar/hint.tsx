@@ -13,7 +13,7 @@ const Hint = ({ children, label, sideOffset, side, align, alignOffset }: HintPro
   return (
     <TooltipProvider>
       <Tooltip delayDuration={100}>
-        <TooltipTrigger>{children}</TooltipTrigger>
+        <TooltipTrigger className="w-[36px] h-[36px]">{children}</TooltipTrigger>
         <TooltipContent
           className="bg-black text-white"
           side={side}
