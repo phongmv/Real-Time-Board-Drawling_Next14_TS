@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { CreateOrganization } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
