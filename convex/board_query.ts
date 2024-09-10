@@ -9,10 +9,25 @@ export const get = query({
     const identity = await ctx.auth.getUserIdentity()
     if (!identity) throw new Error('Unauthorized!')
 
-    return await ctx.db
+    const boards = await ctx.db
       .query('boards')
       .withIndex('by_org', (q) => q.eq('orgId', args.orgId))
       .order('desc')
       .collect()
+
+    const boardsWithFavoritesRelation = boards.map((board) => {
+      return ctx.db
+        .query('userFavorites')
+        .withIndex('by_user_board', (q) => q.eq('userId', identity.subject).eq('boardId', board._id))
+        .unique()
+        .then((favorites) => {
+          return {
+            ...board,
+            isFavorites: !!favorites,
+          }
+        })
+    })
+
+    return Promise.all(boardsWithFavoritesRelation)
   },
 })

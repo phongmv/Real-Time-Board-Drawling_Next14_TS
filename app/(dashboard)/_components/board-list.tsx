@@ -58,7 +58,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
             orgId={orgId}
             createdAt={board._creationTime}
             imageUrl={board.imageUrl}
-            isFavorite={false}
+            isFavorite={board.isFavorites}
           />
         ))}
       </div>
