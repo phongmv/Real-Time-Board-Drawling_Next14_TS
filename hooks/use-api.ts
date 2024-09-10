@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useMutation } from 'convex/react'
 
-export const useApiMutation = (mutationFn: any) => {
+export const useApi = (callback: any) => {
   const [pending, setPending] = useState(false)
 
-  const apiMutation = useMutation(mutationFn)
-  const mutate = (payload: any) => {
+  const api = useMutation(callback)
+  const asyncFn = (payload: any) => {
     setPending(true)
-    return apiMutation(payload)
+    return api(payload)
       .then((result) => result)
       .catch((err) => {
         throw err
@@ -16,7 +16,7 @@ export const useApiMutation = (mutationFn: any) => {
   }
 
   return {
-    mutate,
+    asyncFn,
     pending,
   }
 }

@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 import { Plus } from 'lucide-react'
 import { api } from '@/convex/_generated/api'
-import { useApiMutation } from '@/hooks/use-api-mutation'
+import { useApi } from '@/hooks/use-api'
 import { toast } from 'sonner'
 
 interface NewBoardButtonProps {
@@ -11,10 +11,10 @@ interface NewBoardButtonProps {
 }
 
 const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
-  const { mutate, pending } = useApiMutation(api.board.create)
+  const { asyncFn, pending } = useApi(api.board_mutation.create)
 
   const onClick = () => {
-    mutate({
+    asyncFn({
       title: 'Untitled',
       orgId,
     })

@@ -4,16 +4,16 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { useOrganization } from '@clerk/nextjs'
 import { api } from '@/convex/_generated/api'
-import { useApiMutation } from '@/hooks/use-api-mutation'
+import { useApi } from '@/hooks/use-api'
 import { toast } from 'sonner'
 
 const EmptyBoards = () => {
   const { organization } = useOrganization()
-  const { mutate, pending } = useApiMutation(api.board.create)
+  const { asyncFn, pending } = useApi(api.board_mutation.create)
 
   const onClick = () => {
     if (!organization?.id) return
-    mutate({
+    asyncFn({
       title: 'Untitled',
       orgId: organization.id,
     })
