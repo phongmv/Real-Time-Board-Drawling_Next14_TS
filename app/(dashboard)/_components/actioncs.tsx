@@ -10,14 +10,17 @@ interface ActionsProps {
 }
 
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Link2, Trash2 } from 'lucide-react'
+import { Link2, Pencil, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import ConfirmModal from '@/app/(dashboard)/_components/confirm-modal'
 import { useApi } from '@/hooks/use-api'
 import { api } from '@/convex/_generated/api'
 import { Button } from '@/components/ui/button'
+import { useRenameModal } from '@/store/use-rename-modal'
 
 const Actions = ({ children, side, sideOffset, id, title }: ActionsProps) => {
+  const { onOpen } = useRenameModal()
+
   const copyBoardLink = () => {
     navigator.clipboard
       .writeText(`${window.location.origin}/board/${id}`)
@@ -25,13 +28,12 @@ const Actions = ({ children, side, sideOffset, id, title }: ActionsProps) => {
       .catch(() => toast.error('Failed to copy link'))
   }
 
+  const { asyncFn, pending } = useApi(api.board_mutation.remove)
   const onDelete = () => {
     asyncFn({ id })
       .then(() => toast.success('Deleted'))
       .catch(() => toast.error('Failed to delete board'))
   }
-
-  const { asyncFn, pending } = useApi(api.board_mutation.remove)
 
   return (
     <DropdownMenu>
@@ -40,6 +42,10 @@ const Actions = ({ children, side, sideOffset, id, title }: ActionsProps) => {
         <DropdownMenuItem onClick={copyBoardLink}>
           <Link2 className="mr-2 w-4 h-4" /> Copy link
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => onOpen(id, title)}>
+          <Pencil className="mr-2 w-4 h-4" /> Rename
+        </DropdownMenuItem>
+
         <ConfirmModal
           header="Delete board?"
           description="This will detele the board and all of its contents"
