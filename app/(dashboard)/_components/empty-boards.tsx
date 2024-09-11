@@ -6,10 +6,12 @@ import { useOrganization } from '@clerk/nextjs'
 import { api } from '@/convex/_generated/api'
 import { useApi } from '@/hooks/use-api'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 const EmptyBoards = () => {
   const { organization } = useOrganization()
   const { asyncFn, pending } = useApi(api.board_mutation.create)
+  const router = useRouter()
 
   const onClick = () => {
     if (!organization?.id) return
@@ -18,7 +20,8 @@ const EmptyBoards = () => {
       orgId: organization.id,
     })
       .then((id) => {
-        toast.success(`Board created`)
+        toast.success(`Created Board`)
+        router.push(`/board/${id}`)
       })
       .catch(() => {
         toast.error('Failed to create board')

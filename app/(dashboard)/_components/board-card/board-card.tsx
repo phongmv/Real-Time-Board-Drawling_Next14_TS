@@ -35,17 +35,13 @@ const BoardCard = ({ title, authorName, authorId, imageUrl, createdAt, orgId, is
 
   const toggleFavorites = () => {
     if (isFavorite) {
-      onUnFavorites({ id })
-        .catch(() => {
-          throw new Error('Failed to UnFavorites')
-        })
-        .then(() => toast.success('UnFavorited!'))
+      onUnFavorites({ id }).catch(() => {
+        throw new Error('Failed to UnFavorites')
+      })
     } else {
-      onFavorites({ id, orgId })
-        .catch(() => {
-          throw new Error('Failed to favorites')
-        })
-        .then(() => toast.success('Favorited!'))
+      onFavorites({ id, orgId }).catch(() => {
+        throw new Error('Failed to favorites')
+      })
     }
   }
 

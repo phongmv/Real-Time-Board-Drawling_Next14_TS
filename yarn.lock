@@ -291,6 +291,27 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@liveblocks/client@2.6.1", "@liveblocks/client@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@liveblocks/client/-/client-2.6.1.tgz#288e0c22ea629e28e902cb385f699708ea75b8d3"
+  integrity sha512-2MujkZNwH+a2YCAEKNZCz2sK44Fe9tpJhnBG6QrskDaYJuWFZbA8GLpVMHVsnPd54gar4rYPjLziZR/B4eL/ww==
+  dependencies:
+    "@liveblocks/core" "2.6.1"
+
+"@liveblocks/core@2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@liveblocks/core/-/core-2.6.1.tgz#752a41fd6a4744af499db53c63890f606a6bab49"
+  integrity sha512-OecnFKSTNIaM257bserDSTx6EHWMWrrBwo2AD0fQOS29EWHjZMq/LNrWTt3u/9aROWPp44C6KV/Iqn0HHzzL0w==
+
+"@liveblocks/react@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@liveblocks/react/-/react-2.6.1.tgz#b73dc59d72f7ff36b8ff71678bc390c0a5255d66"
+  integrity sha512-gFjXM5OJLRSNohOKU3Qxph/tBxBtv+PdAEprRHtpDxadyVGsPmMlWKgrajK1v9rkM28w7pm/qrB1U9rp98wWOQ==
+  dependencies:
+    "@liveblocks/client" "2.6.1"
+    "@liveblocks/core" "2.6.1"
+    use-sync-external-store "^1.2.2"
+
 "@next/env@14.2.7":
   version "14.2.7"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-14.2.7.tgz#40fcd6ccdd53fd7e6788a0604f39032c84bea112"
@@ -1161,6 +1182,11 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
+
+convex-helpers@^0.1.57:
+  version "0.1.57"
+  resolved "https://registry.yarnpkg.com/convex-helpers/-/convex-helpers-0.1.57.tgz#a65ec4f4ed46640e6021e8cc1536044839116b1f"
+  integrity sha512-Rzo6wEZs/L6gFev9yZxPo+YYJnJfgdBAjhxsBC6q4j0tLn2BSfzWgiRZfHxo0i47JVfqxMH9oZj0yKEZ7faFnQ==
 
 convex@^1.15.0:
   version "1.15.0"
@@ -3541,7 +3567,7 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-use-sync-external-store@1.2.2, use-sync-external-store@^1.2.0:
+use-sync-external-store@1.2.2, use-sync-external-store@^1.2.0, use-sync-external-store@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.2.tgz#c3b6390f3a30eba13200d2302dcdf1e7b57b2ef9"
   integrity sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==
