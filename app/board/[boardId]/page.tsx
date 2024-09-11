@@ -1,6 +1,7 @@
 import Canvas from '@/app/board/[boardId]/_components/canvas'
 import Room from '@/app/board/[boardId]/_components/room'
 import Loading from '@/app/board/[boardId]/_components/loading'
+import ModalProvider from '@/providers/modal-provider'
 
 interface BoardIdPageProps {
   params: {

@@ -1,11 +1,5 @@
 // Define Liveblocks types for your application
 // https://liveblocks.io/docs/api-reference/liveblocks-react#Typing-your-data
-import { createClient } from '@liveblocks/client'
-
-// Initialize the Liveblocks client with your public API key
-const client = createClient({
-  publicApiKey: 'pk_dev_3xda1imGr6I6xnfjvQzmIdtCre3l3MNedAmq5DhMU5hy2Q9WzOj3Yv1uavBO-6l1', // Replace with your actual Liveblocks public API key
-})
 
 declare global {
   interface Liveblocks {
@@ -26,8 +20,8 @@ declare global {
       id: string
       info: {
         // Example properties, for useSelf, useUser, useOthers, etc.
-        // name: string;
-        // avatar: string;
+        name?: string
+        picture?: string
       }
     }
 

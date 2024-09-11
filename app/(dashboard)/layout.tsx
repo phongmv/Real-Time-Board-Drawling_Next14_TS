@@ -24,8 +24,6 @@ const DashBoardLayout = ({ children }: DashBoardLayoutProps) => {
           </div>
         </div>
       </main>
-      <ModalProvider />
-      <Toaster />
     </>
   )
 }

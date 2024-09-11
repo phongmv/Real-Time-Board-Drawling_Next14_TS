@@ -3,7 +3,7 @@ import { DropdownMenuContentProps } from '@radix-ui/react-dropdown-menu'
 interface ActionsProps {
   children?: React.ReactNode
   side: DropdownMenuContentProps['side']
-  align: DropdownMenuContentProps['align']
+  align?: DropdownMenuContentProps['align']
   sideOffset?: DropdownMenuContentProps['sideOffset']
   id: string
   title: string

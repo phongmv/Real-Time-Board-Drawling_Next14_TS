@@ -59,3 +59,10 @@ export const get = query({
     return Promise.all(boardsWithFavoritesRelation)
   },
 })
+
+export const get_detail = query({
+  args: { id: v.id('boards') },
+  handler: (ctx, args) => {
+    return ctx.db.get(args.id)
+  },
+})
