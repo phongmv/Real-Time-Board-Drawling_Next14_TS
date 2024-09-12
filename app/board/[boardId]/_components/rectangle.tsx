@@ -13,8 +13,9 @@ export const Rectangle = ({ id, layer, onPointerDown, selectionColor }: Rectangl
 
   return (
     <rect
-      x={x}
-      y={y}
+      style={{
+        transform: `translate(${x}px, ${y}px)`,
+      }}
       height={height}
       width={width}
       fill={fill ? colorToCss(fill) : '#000'}
@@ -22,9 +23,8 @@ export const Rectangle = ({ id, layer, onPointerDown, selectionColor }: Rectangl
       stroke={selectionColor || 'transparent'}
       className="drop-shadow-md"
       onPointerDown={(e) => onPointerDown(e, id)}
-      style={{
-        transform: `translateX${x}px translateY${y}px`,
-      }}
+      x={0}
+      y={0}
     />
   )
 }
