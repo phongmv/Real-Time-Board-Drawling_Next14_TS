@@ -3,6 +3,7 @@ import { memo } from 'react'
 import { useStorage } from '@liveblocks/react'
 import { LayerType } from '@/types/canvas'
 import { Rectangle } from '@/app/board/[boardId]/_components/rectangle'
+import { Ellipse } from '@/app/board/[boardId]/_components/ellipse'
 
 interface LayerPreviewProps {
   id: string
@@ -18,6 +19,8 @@ export const LayerPreview = memo(({ id, selectionColor, onPointerLayerDown }: La
   switch (layer.type) {
     case LayerType.Rectangle:
       return <Rectangle id={id} layer={layer} onPointerDown={onPointerLayerDown} selectionColor={selectionColor} />
+    case LayerType.Ellipse:
+      return <Ellipse id={id} layer={layer} onPointerDown={onPointerLayerDown} selectionColor={selectionColor} />
     default:
       console.warn('Unknown layer type')
       return null

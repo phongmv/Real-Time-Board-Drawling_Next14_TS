@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { Camera, Color, Point, Side, XYWH } from '@/types/canvas'
+import { Camera, Color, Layer, Point, Side, XYWH } from '@/types/canvas'
+import { store } from 'next/dist/build/output/store'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -50,6 +51,31 @@ export function resizeBound(bounds: XYWH, corner: Side, point: Point) {
     result.y = Math.min(point.y, bounds.y)
     result.height = Math.abs(point.y - bounds.y)
   }
-
   return result
+}
+
+export function findIntersectingLayersWithRectangle(
+  layerIds: readonly string[],
+  layers: ReadonlyMap<string, Layer>,
+  a: Point,
+  b: Point
+) {
+  const rect = {
+    x: Math.min(a.x, b.x),
+    y: Math.min(a.y, b.y),
+    width: Math.abs(a.x - b.x),
+    height: Math.abs(a.y - b.y),
+  }
+
+  const ids = []
+  for (const layerId of layerIds) {
+    const layer = layers.get(layerId)
+    if (layer == null) continue
+    const { x, y, width, height } = layer
+    if (rect.x + rect.width > x && rect.x < x + width && rect.y + rect.height > y && rect.y < y + height) {
+      ids.push(layerId)
+    }
+  }
+
+  return ids
 }
