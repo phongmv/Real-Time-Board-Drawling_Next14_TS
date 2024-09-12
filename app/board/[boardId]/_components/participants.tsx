@@ -12,7 +12,7 @@ export const Participants = () => {
   const currUser = useSelf()
   const hasMoreUser = users.length > MAX_SHOW_USERS
 
-  console.log('users', users)
+  // console.log('users', users)
 
   return (
     <div className="absolute top-2 right-2 h-12 bg-white rounded-md p-1.5 shadow-md flex items-center">

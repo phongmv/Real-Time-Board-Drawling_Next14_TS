@@ -35,7 +35,7 @@ export const Info = ({ boardId }: InfoProps) => {
   if (!data) return <InfoSkeleton></InfoSkeleton>
 
   return (
-    <div className="absolute top-2 left-2 bg-white rounded-md p-1.5 h-12 flex items-center  w-[300px] shadow-md">
+    <div className="absolute top-2 left-2 bg-white rounded-md p-1.5 h-12 flex items-center justify-around  w-[300px] shadow-md">
       <Hint label="Go to boards" side="bottom" sideOffset={10}>
         <Button asChild>
           <Link href="/">
@@ -45,7 +45,7 @@ export const Info = ({ boardId }: InfoProps) => {
         </Button>
       </Hint>
       <TapSeparator />
-      <Hint label="Go to boards" side="bottom" sideOffset={10}>
+      <Hint label="Edit name" side="bottom" sideOffset={10}>
         <Button onClick={() => onOpen(data._id, data.title)} className="font-semibold text-sm px-2" variant="ghost">
           {data.title}
         </Button>
