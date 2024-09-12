@@ -30,6 +30,7 @@ export const get = query({
 
     const title = args.search as string
     let boards = []
+
     if (title) {
       boards = await ctx.db
         .query('boards')
