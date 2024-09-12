@@ -10,9 +10,9 @@ export enum CanvasMode {
 
 export type CanvasState =
   | { mode: CanvasMode.None }
-  | { mode: CanvasMode.Pressing; origin: Points }
-  | { mode: CanvasMode.SelectionNet; origin: Points; current: Points }
-  | { mode: CanvasMode.Translating; current: Points }
+  | { mode: CanvasMode.Pressing; origin: Point }
+  | { mode: CanvasMode.SelectionNet; origin: Point; current: Point }
+  | { mode: CanvasMode.Translating; current: Point }
   | { mode: CanvasMode.Inserting; layerType: LayerType.Ellipse | LayerType.Rectangle | LayerType.Note | LayerType.Text }
   | { mode: CanvasMode.Resizing; initialBounds: XYWH; corner: Side }
   | { mode: CanvasMode.Pencil }
@@ -89,7 +89,7 @@ export type NoteLayer = {
   value?: string
 }
 
-export type Points = {
+export type Point = {
   x: number
   y: number
 }
