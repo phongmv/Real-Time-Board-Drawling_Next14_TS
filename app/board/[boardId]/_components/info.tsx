@@ -40,13 +40,13 @@ export const Info = ({ boardId }: InfoProps) => {
         <Button asChild>
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={40} height={40} />
-            <span className={cn('font-semibold text-xl ml-2 text-white', font.className)}>Board</span>
+            <span className={cn('font-semibold text-sm text-white', font.className)}>Board</span>
           </Link>
         </Button>
       </Hint>
       <TapSeparator />
       <Hint label="Go to boards" side="bottom" sideOffset={10}>
-        <Button onClick={() => onOpen(data._id, data.title)} className="font-normal text-xs px-2" variant="ghost">
+        <Button onClick={() => onOpen(data._id, data.title)} className="font-semibold text-sm px-2" variant="ghost">
           {data.title}
         </Button>
       </Hint>
@@ -66,7 +66,7 @@ export const Info = ({ boardId }: InfoProps) => {
 
 export const InfoSkeleton = () => {
   return (
-    <div className="absolute top-2 left-2 bg-white rounded-md h-12  shadow-md w-[280px]">
+    <div className="absolute top-2 left-2 bg-white rounded-md h-12  shadow-lg w-[280px]">
       <Skeleton className="h-full w-full bg-muted " />
     </div>
   )
