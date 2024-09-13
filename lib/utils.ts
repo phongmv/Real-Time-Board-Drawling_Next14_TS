@@ -1,7 +1,6 @@
-import { clsx, type ClassValue } from 'clsx'
+import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { Camera, Color, Layer, Point, Side, XYWH } from '@/types/canvas'
-import { store } from 'next/dist/build/output/store'
+import { Camera, Color, Layer, LayerType, PathLayer, Point, Side, XYWH } from '@/types/canvas'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -82,4 +81,62 @@ export function findIntersectingLayersWithRectangle(
 export function getContrastingTextColor(color: Color) {
   const luminance = 0.299 * color.r + 0.587 * color.g + 0.114 * color.b
   return luminance > 182 ? 'black' : 'white'
+}
+
+export function penPointToPathLayer(points: number[][], color: Color): PathLayer {
+  if (points.length < 2) {
+    throw new Error('Can not transform points with less than 2 points')
+  }
+  let top = Number.POSITIVE_INFINITY
+  let left = Number.POSITIVE_INFINITY
+  let right = Number.NEGATIVE_INFINITY
+  let bottom = Number.NEGATIVE_INFINITY
+
+  for (const point of points) {
+    const [x, y] = point
+    if (left > x) {
+      left = x
+    }
+    if (top > y) {
+      top = y
+    }
+    if (right < x) {
+      right = x
+    }
+    if (bottom < y) {
+      bottom = y
+    }
+  }
+
+  return {
+    type: LayerType.Path,
+    x: left,
+    y: top,
+    width: right - left,
+    height: bottom - top,
+    fill: color,
+    points: points.map(([x, y, pressure]) => [x - left, y - top, pressure]),
+  }
+}
+
+export function getSvgFromStroke(stroke: number[][]): string {
+  if (!stroke.length) return ''
+
+  // Start the path data with 'M' to move to the first point
+  const d = stroke.reduce<string[]>((acc, [x0, y0], i, arr) => {
+    if (i === 0) {
+      // Move to the first point
+      return [...acc, `M ${x0} ${y0}`]
+    }
+    // Get the previous point
+    const [x1, y1] = arr[i - 1]
+    // Compute the control point (midpoint between current and previous point)
+    const cx = (x0 + x1) / 2
+    const cy = (y0 + y1) / 2
+    // Use quadratic curve (Q) to smooth the stroke
+    return [...acc, `Q ${x1} ${y1}, ${cx} ${cy}`]
+  }, [])
+  d.push('Z') // Close the path
+
+  return d.join(' ')
 }

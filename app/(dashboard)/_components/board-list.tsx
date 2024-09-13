@@ -1,10 +1,12 @@
+'use client'
+
 import EmptySearching from '@/app/(dashboard)/_components/empty-searching'
 import EmptyFavorite from '@/app/(dashboard)/_components/empty-favorites'
 import EmptyBoards from '@/app/(dashboard)/_components/empty-boards'
 import { useQuery } from 'convex/react'
-import { api } from '@/convex/_generated/api'
 import BoardCard from '@/app/(dashboard)/_components/board-card/board-card'
 import NewBoardButton from '@/app/(dashboard)/_components/new-board-button'
+import { api } from '@/convex/_generated/api'
 
 interface BoardListProps {
   orgId: string
@@ -15,8 +17,7 @@ interface BoardListProps {
 }
 
 const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api.board_query.get, { orgId, ...query })
-
+  const data = useQuery(api?.board_query?.get, { orgId, ...query })
   if (data === undefined)
     return (
       <div>
