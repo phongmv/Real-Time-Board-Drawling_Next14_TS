@@ -9,7 +9,6 @@ import Actions from '@/app/(dashboard)/_components/actioncs'
 import { MoreHorizontal } from 'lucide-react'
 import { useApi } from '@/hooks/use-api'
 import { api } from '@/convex/_generated/api'
-import { toast } from 'sonner'
 
 interface BoardCardProps {
   id: string

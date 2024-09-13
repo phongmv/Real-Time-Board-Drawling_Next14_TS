@@ -2,8 +2,6 @@
 import SideBar from '@/app/(dashboard)/_components/side-bar'
 import OrgSideBar from '@/app/(dashboard)/_components/org-side-bar'
 import Navbar from '@/app/(dashboard)/_components/navbar'
-import { Toaster } from '@/components/ui/sonner'
-import ModalProvider from '@/providers/modal-provider'
 
 interface DashBoardLayoutProps {
   children: React.ReactNode

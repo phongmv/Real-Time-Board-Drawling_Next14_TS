@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import { ConvexClientProvider } from '@/providers/convex-client-provider'
 import ModalProvider from '@/providers/modal-provider'
 import { Toaster } from '@/components/ui/sonner'
+import { Suspense } from 'react'
+import Loading from '@/app/board/[boardId]/_components/loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,11 +18,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProvider>
-          {children}
-          <ModalProvider />
-          <Toaster />
-        </ConvexClientProvider>
+        <Suspense fallback={<Loading />}>
+          <ConvexClientProvider>
+            {children}
+            <ModalProvider />
+            <Toaster />
+          </ConvexClientProvider>
+        </Suspense>
       </body>
     </html>
   )
