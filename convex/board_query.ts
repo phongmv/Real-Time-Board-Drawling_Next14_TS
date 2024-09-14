@@ -13,7 +13,7 @@ export const get = query({
 
     if (!identity) throw new Error('Unauthorized!')
 
-    console.log('args.favorites', args.favorites)
+    console.log('!!!!args.favorites!!!!!', args.favorites)
 
     if (args.favorites) {
       const favoritesBoards = await ctx.db
@@ -32,7 +32,7 @@ export const get = query({
     }
 
     const title = args.search as string
-    console.log(title, 'title')
+    console.log('!!!title!!', title)
 
     let boards = []
 

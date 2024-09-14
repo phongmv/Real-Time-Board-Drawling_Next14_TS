@@ -1,5 +1,3 @@
-'use client'
-
 import EmptySearching from '@/app/(dashboard)/_components/empty-searching'
 import EmptyFavorite from '@/app/(dashboard)/_components/empty-favorites'
 import EmptyBoards from '@/app/(dashboard)/_components/empty-boards'
@@ -17,9 +15,9 @@ interface BoardListProps {
 }
 
 const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api?.board_query?.get, { orgId, ...query })
+  const data = useQuery(api.board_query.get, { orgId, ...query })
 
-  console.log('data search', data)
+  console.log('!!!data search', data)
   if (data === undefined)
     return (
       <div>
