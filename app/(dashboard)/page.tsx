@@ -11,6 +11,7 @@ interface DashboardPageProps {
 }
 
 export default function DashboardPage({ searchParams }: DashboardPageProps) {
+  console.log('searchParams', searchParams)
   const { organization } = useOrganization()
   return (
     <div className="p-6 flex-1 h-[calc(100%-80px)]">
