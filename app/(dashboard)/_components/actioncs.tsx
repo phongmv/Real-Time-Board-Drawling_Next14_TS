@@ -7,6 +7,7 @@ interface ActionsProps {
   sideOffset?: DropdownMenuContentProps['sideOffset']
   id: string
   title: string
+  isDelete?: boolean
 }
 
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
@@ -18,7 +19,7 @@ import { api } from '@/convex/_generated/api'
 import { Button } from '@/components/ui/button'
 import { useRenameModal } from '@/store/use-rename-modal'
 
-const Actions = ({ children, side, sideOffset, id, title }: ActionsProps) => {
+const Actions = ({ children, side, sideOffset, id, title, isDelete }: ActionsProps) => {
   const { onOpen } = useRenameModal()
 
   const copyBoardLink = () => {
@@ -46,16 +47,18 @@ const Actions = ({ children, side, sideOffset, id, title }: ActionsProps) => {
           <Pencil className="mr-2 w-4 h-4" /> Rename
         </DropdownMenuItem>
 
-        <ConfirmModal
-          header="Delete board?"
-          description="This will detele the board and all of its contents"
-          disabled={pending}
-          onConfirm={onDelete}
-        >
-          <Button variant="ghost" className="text-sm w-full px-[6px] py-2 flex justify-start">
-            <Trash2 className="mr-2 w-4 h-4" /> Delete
-          </Button>
-        </ConfirmModal>
+        {isDelete && (
+          <ConfirmModal
+            header="Delete board?"
+            description="This will detele the board and all of its contents"
+            disabled={pending}
+            onConfirm={onDelete}
+          >
+            <Button variant="ghost" className="text-sm w-full px-[6px] py-2 flex justify-start">
+              <Trash2 className="mr-2 w-4 h-4" /> Delete
+            </Button>
+          </ConfirmModal>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   )

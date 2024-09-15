@@ -50,7 +50,7 @@ const BoardCard = ({ title, authorName, authorId, imageUrl, createdAt, orgId, is
         <div className="relative bg-amber-50 flex-1">
           <Image src={imageUrl} alt={title} fill className="object-fit" />
           <OverLay />
-          <Actions title={title} id={id} side="right" align="end" sideOffset={10}>
+          <Actions isDelete={true} title={title} id={id} side="right" align="end" sideOffset={10}>
             <button className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 outline-none">
               <MoreHorizontal className="opacity-75 hover:opacity-100 text-white" />
             </button>
