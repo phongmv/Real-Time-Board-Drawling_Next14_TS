@@ -20,7 +20,7 @@ const OrgSideBar = () => {
     <div className="hidden lg:flex flex-col w-[206px] h-full space-y-6 pt-5 pl-5">
       <Link href="/">
         <div className="flex items-center gap-x-2">
-          <Image src="/logo.png" alt="logo" width={60} height={60} />
+          <Image src="/logo.svg" alt="logo" width={60} height={60} />
           <span className={cn('font-semibold text-2xl', font.className)}>Board</span>
         </div>
       </Link>
